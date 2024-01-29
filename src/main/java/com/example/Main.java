@@ -12,6 +12,9 @@ public class Main {
         new Thread(new Runnable(){
             @Override
             public void run() {
+                //Монитор - созданный выше объект (Object)
+                //делается для предотвращения race condition 
+                // без указания монитора онитором будет наш класс this.Main (пример)
                 synchronized(monitor){
                     for(int i = 0; i < 3; i++){
                         try {
